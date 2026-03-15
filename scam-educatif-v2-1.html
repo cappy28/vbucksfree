@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreeRewards.gg — Cadeaux Gratuits Vérifiés ✅</title>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #030308;
+  --bg2: #07070f;
+  --card: #0c0c18;
+  --border: rgba(255,255,255,0.07);
+  --gold: #f5c518;
+  --gold2: #ff8c00;
+  --green: #00ff88;
+  --blue: #00d4ff;
+  --red: #ff2244;
+  --purple: #9b59ff;
+  --text: #e8e8f0;
+  --muted: #6b6b88;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  font-family:'Exo 2',sans-serif;
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── PARTICLES BG ── */
+#particles{
+  position:fixed;inset:0;
+  pointer-events:none;z-index:0;overflow:hidden;
+}
+.particle{
+  position:absolute;
+  border-radius:50%;
+  animation:float linear infinite;
+  opacity:0;
+}
+@keyframes float{
+  0%{transform:translateY(100vh) scale(0);opacity:0}
+  10%{opacity:.6}
+  90%{opacity:.3}
+  100%{transform:translateY(-20vh) scale(1.2);opacity:0}
+}
+
+/* ── SCREEN SYSTEM ── */
+.screen{display:none;min-height:100vh;position:relative;z-index:1}
+.screen.active{display:flex;flex-direction:column}
+
+/* ══════════════════════════════
+   SCREEN 1 — LANDING
+══════════════════════════════ */
+#s-land{align-items:center;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(245,197,24,.07) 0%,transparent 70%)}
+
+/* Top bar */
+.topbar{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:12px 28px;
+  background:rgba(255,255,255,.02);
+  border-bottom:1px solid var(--border);
+  font-size:12px;
+  position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);
+}
+.topbar-left{display:flex;align-items:center;gap:10px}
+.logo-txt{
+  font-family:'Russo One',sans-serif;font-size:20px;letter-spacing:1px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.verified-badge{
+  background:rgba(0,255,136,.12);border:1px solid rgba(0,255,136,.3);
+  color:var(--green);font-size:10px;font-weight:700;letter-spacing:1.5px;
+  padding:3px 10px;border-radius:20px;
+}
+.topbar-right{display:flex;align-items:center;gap:14px}
+.ssl-badge{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--green)}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* Ticker */
+.ticker-wrap{
+  width:100%;overflow:hidden;
+  background:linear-gradient(90deg,rgba(245,197,24,.12),rgba(255,140,0,.12));
+  border-bottom:1px solid rgba(245,197,24,.15);
+  padding:9px 0;white-space:nowrap;
+}
+.ticker-inner{
+  display:inline-block;
+  animation:ticker 22s linear infinite;
+  font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--gold);
+}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* Hero */
+.hero{text-align:center;padding:50px 20px 30px;max-width:720px;width:100%}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.25);
+  color:var(--gold);font-size:11px;font-weight:700;letter-spacing:2px;
+  padding:6px 16px;border-radius:30px;margin-bottom:22px;
+}
+.hero h1{
+  font-family:'Russo One',sans-serif;
+  font-size:clamp(32px,7vw,64px);
+  line-height:1.05;
+  margin-bottom:16px;
+  text-shadow:0 0 60px rgba(245,197,24,.15);
+}
+.hero h1 .hl{
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero p{color:var(--muted);font-size:15px;line-height:1.6;max-width:480px;margin:0 auto 28px}
+
+/* Countdown */
+.countdown-bar{
+  display:inline-flex;align-items:center;gap:14px;
+  background:rgba(255,34,68,.07);border:1px solid rgba(255,34,68,.2);
+  border-radius:14px;padding:12px 22px;margin-bottom:36px;
+}
+.countdown-bar .label{font-size:11px;color:var(--red);font-weight:700;letter-spacing:1px}
+.countdown-units{display:flex;gap:6px;align-items:center}
+.unit{
+  background:rgba(255,34,68,.12);border:1px solid rgba(255,34,68,.25);
+  border-radius:8px;padding:4px 10px;
+  font-family:'Russo One',sans-serif;font-size:20px;color:var(--red);min-width:42px;text-align:center;
+}
+.unit-label{font-size:9px;color:var(--muted);display:block;margin-top:2px;letter-spacing:1px}
+.sep{color:var(--red);font-size:20px;font-weight:900}
+
+/* Slots left */
+.slots-bar{
+  display:flex;align-items:center;gap:10px;margin-bottom:10px;
+  background:rgba(255,34,68,.06);border:1px solid rgba(255,34,68,.15);
+  border-radius:10px;padding:8px 16px;font-size:12px;
+}
+.slots-bar .s-count{color:var(--red);font-weight:900;font-size:15px}
+
+/* Offers grid */
+.offers-section{width:100%;max-width:1100px;padding:0 20px 60px}
+.section-title{
+  text-align:center;font-family:'Russo One',sans-serif;
+  font-size:clamp(18px,3vw,26px);letter-spacing:1px;margin-bottom:8px;
+}
+.section-sub{text-align:center;color:var(--muted);font-size:13px;margin-bottom:32px}
+
+.offers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+
+.offer-card{
+  background:var(--card);
+  border-radius:18px;
+  border:1px solid var(--border);
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
+  position:relative;
+}
+.offer-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(245,197,24,.4);
+  box-shadow:0 20px 60px rgba(245,197,24,.08);
+}
+.offer-card.hot::before{
+  content:'🔥 POPULAIRE';
+  position:absolute;top:14px;right:14px;
+  background:var(--red);color:#fff;
+  font-size:9px;font-weight:900;letter-spacing:1.5px;
+  padding:4px 10px;border-radius:20px;z-index:2;
+}
+.offer-card.new::before{
+  content:'✨ NOUVEAU';
+  position:absolute;top:14px;right:14px;
+  background:var(--purple);color:#fff;
+  font-size:9px;font-weight:900;letter-spacing:1.5px;
+  padding:4px 10px;border-radius:20px;z-index:2;
+}
+
+.card-header{
+  padding:22px 22px 0;
+  display:flex;align-items:flex-start;gap:14px;
+}
+.card-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;flex-shrink:0;
+}
+.card-body{padding:0 22px 22px;margin-top:14px}
+.card-brand{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);margin-bottom:4px}
+.card-name{font-family:'Russo One',sans-serif;font-size:17px;margin-bottom:10px}
+.card-value{
+  font-family:'Russo One',sans-serif;
+  font-size:38px;line-height:1;margin-bottom:4px;
+}
+.card-old{font-size:12px;color:var(--muted);text-decoration:line-through;margin-bottom:14px}
+
+.card-bar{
+  height:4px;border-radius:4px;background:rgba(255,255,255,.06);margin-bottom:8px;overflow:hidden;
+}
+.card-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--green),var(--blue))}
+.card-stock{font-size:11px;color:var(--muted)}
+.card-stock span{color:var(--red);font-weight:700}
+
+.btn-card{
+  display:block;width:100%;padding:13px;border:none;border-radius:12px;
+  font-family:'Exo 2',sans-serif;font-size:14px;font-weight:900;
+  letter-spacing:.5px;cursor:pointer;margin-top:16px;
+  transition:opacity .15s,transform .1s;
+}
+.btn-card:hover{opacity:.9;transform:scale(1.015)}
+
+/* Proofs */
+.proof-section{width:100%;max-width:900px;padding:0 20px 50px}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.proof-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:14px;padding:16px 18px;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.proof-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,#2a2a3e,#1a1a2e);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.proof-name{font-size:13px;font-weight:700;margin-bottom:2px}
+.proof-txt{font-size:12px;color:var(--muted);line-height:1.4}
+.proof-stars{color:var(--gold);font-size:11px;margin-bottom:3px}
+
+/* Toast notifs */
+#toast-container{position:fixed;bottom:20px;left:20px;z-index:999;display:flex;flex-direction:column;gap:8px}
+.toast{
+  background:#0f0f1e;border:1px solid rgba(0,255,136,.2);
+  border-radius:12px;padding:12px 16px;
+  display:flex;align-items:center;gap:10px;
+  font-size:12px;min-width:240px;
+  animation:toast-in .3s ease;box-shadow:0 4px 20px rgba(0,0,0,.4);
+}
+@keyframes toast-in{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+.toast-icon{font-size:18px}
+.toast-name{font-weight:700;color:var(--green)}
+
+/* ══════════════════════════════
+   SCREEN 2 — FORM
+══════════════════════════════ */
+#s-form{
+  align-items:center;justify-content:center;padding:40px 20px;
+  background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(155,89,255,.06) 0%,transparent 70%)
+}
+.form-wrap{max-width:480px;width:100%}
+.form-back{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--muted);font-size:13px;cursor:pointer;margin-bottom:24px;
+  transition:color .2s;
+}
+.form-back:hover{color:var(--text)}
+.form-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:24px;padding:36px 32px;
+}
+.form-step{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--purple);margin-bottom:10px}
+.form-card h2{font-family:'Russo One',sans-serif;font-size:26px;margin-bottom:8px}
+.form-card>.sub{color:var(--muted);font-size:13px;margin-bottom:24px;line-height:1.5}
+
+.reward-preview{
+  display:flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,rgba(245,197,24,.06),rgba(255,140,0,.06));
+  border:1px solid rgba(245,197,24,.2);
+  border-radius:14px;padding:14px 18px;margin-bottom:28px;
+}
+.rp-icon{font-size:34px}
+.rp-label{font-size:11px;color:var(--muted);margin-bottom:3px}
+.rp-val{font-family:'Russo One',sans-serif;font-size:22px;color:var(--gold)}
+
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--muted);margin-bottom:7px}
+.fg input,.fg select{
+  width:100%;padding:13px 16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:12px;color:var(--text);
+  font-family:'Exo 2',sans-serif;font-size:14px;
+  outline:none;transition:border-color .2s;
+}
+.fg input:focus,.fg select:focus{border-color:rgba(245,197,24,.5)}
+.fg select option{background:#111}
+.fg input::placeholder{color:#444}
+
+.security-row{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(0,255,136,.04);border:1px solid rgba(0,255,136,.12);
+  border-radius:10px;padding:10px 14px;font-size:11px;color:var(--green);
+  margin-bottom:20px;
+}
+
+.btn-submit{
+  width:100%;padding:15px;border:none;border-radius:14px;
+  font-family:'Russo One',sans-serif;font-size:18px;letter-spacing:1px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#000;cursor:pointer;
+  box-shadow:0 0 40px rgba(245,197,24,.25);
+  transition:transform .15s,box-shadow .2s;
+}
+.btn-submit:hover{transform:scale(1.02);box-shadow:0 0 60px rgba(245,197,24,.4)}
+
+/* ══════════════════════════════
+   SCREEN 3 — LOADING
+══════════════════════════════ */
+#s-load{
+  align-items:center;justify-content:center;
+  padding:40px 20px;text-align:center;
+  background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(0,212,255,.04) 0%,transparent 70%);
+}
+.load-box{max-width:420px;width:100%}
+.load-ring{
+  width:80px;height:80px;border-radius:50%;
+  border:3px solid rgba(255,255,255,.06);
+  border-top:3px solid var(--gold);
+  animation:spin 1s linear infinite;
+  margin:0 auto 28px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.load-box h2{font-family:'Russo One',sans-serif;font-size:28px;margin-bottom:8px}
+.load-box p{color:var(--muted);font-size:13px;margin-bottom:28px}
+.pbar{height:6px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden;margin-bottom:6px}
+.pfill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:6px;transition:width .08s}
+.ppct{font-size:12px;color:var(--muted);margin-bottom:28px}
+.load-steps{list-style:none;text-align:left}
+.load-steps li{
+  display:flex;align-items:center;gap:12px;
+  padding:9px 0;font-size:13px;color:var(--muted);
+  border-bottom:1px solid var(--border);transition:color .3s;
+}
+.load-steps li:last-child{border-bottom:none}
+.load-steps li.done{color:var(--green)}
+.si{font-size:16px;flex-shrink:0}
+
+/* ══════════════════════════════
+   SCREEN 4 — WIN
+══════════════════════════════ */
+#s-win{
+  align-items:center;justify-content:center;
+  padding:40px 20px;text-align:center;
+  background:radial-gradient(ellipse 70% 50% at 50% 20%,rgba(245,197,24,.07) 0%,transparent 70%);
+}
+.confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:0}
+.win-wrap{position:relative;z-index:1;max-width:500px;width:100%}
+.win-trophy{font-size:80px;display:block;margin-bottom:12px;animation:pop .5s ease;filter:drop-shadow(0 0 40px rgba(245,197,24,.5))}
+@keyframes pop{0%{transform:scale(0) rotate(-15deg)}70%{transform:scale(1.1) rotate(3deg)}100%{transform:scale(1)}}
+.win-badge2{
+  display:inline-block;background:linear-gradient(90deg,var(--gold),var(--gold2));
+  color:#000;font-family:'Russo One',sans-serif;font-size:12px;letter-spacing:2px;
+  padding:5px 18px;border-radius:30px;margin-bottom:16px;
+}
+.win-wrap h1{
+  font-family:'Russo One',sans-serif;font-size:clamp(38px,9vw,68px);
+  letter-spacing:2px;line-height:1;margin-bottom:18px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 20px rgba(245,197,24,.3));
+}
+.win-amount-box{
+  background:rgba(245,197,24,.06);border:1px solid rgba(245,197,24,.2);
+  border-radius:20px;padding:22px 32px;display:inline-block;margin-bottom:20px;
+}
+.wal{font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:6px}
+.wav{font-family:'Russo One',sans-serif;font-size:52px;color:var(--gold)}
+.wau{font-size:12px;color:var(--muted);margin-top:4px}
+.wau span{color:var(--text);font-weight:700}
+.win-wrap>p{color:var(--muted);font-size:13px;max-width:360px;margin:0 auto 20px;line-height:1.6}
+.btn-win{
+  padding:15px 40px;border:none;border-radius:14px;
+  font-family:'Russo One',sans-serif;font-size:18px;letter-spacing:1px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;
+  cursor:pointer;box-shadow:0 0 40px rgba(245,197,24,.3);transition:transform .15s;
+}
+.btn-win:hover{transform:scale(1.04)}
+
+/* ══════════════════════════════
+   SCREEN 5 — REVEAL / EDU
+══════════════════════════════ */
+#s-reveal{
+  align-items:center;justify-content:flex-start;
+  background:#040404;
+}
+
+.reveal-alarm{
+  width:100%;text-align:center;
+  background:repeating-linear-gradient(45deg,#1a0000 0,#1a0000 20px,#200000 20px,#200000 40px);
+  border-bottom:3px solid var(--red);padding:0;overflow:hidden;
+}
+.alarm-inner{
+  background:var(--red);padding:28px 20px;
+  animation:alarm-pulse 1.5s ease-in-out infinite;
+}
+@keyframes alarm-pulse{0%,100%{background:var(--red)}50%{background:#cc0020}}
+.alarm-inner .alarm-icons{font-size:28px;letter-spacing:10px;margin-bottom:10px;animation:blink .5s infinite}
+.alarm-inner h1{
+  font-family:'Russo One',sans-serif;font-size:clamp(26px,6vw,52px);
+  letter-spacing:3px;color:#fff;text-shadow:2px 2px 0 #000;line-height:1.1;
+}
+.alarm-inner p{font-size:14px;color:rgba(255,255,255,.85);margin-top:8px}
+
+.reveal-body{padding:40px 20px 60px;max-width:780px;width:100%;margin:0 auto}
+
+/* Data card */
+.data-card{
+  background:#0a0a0a;border:1px solid rgba(255,34,68,.2);
+  border-radius:20px;padding:28px;margin-bottom:22px;
+  position:relative;overflow:hidden;
+}
+.data-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(255,34,68,.04) 0%,transparent 70%);
+}
+.data-card h2{
+  font-family:'Russo One',sans-serif;font-size:20px;
+  color:var(--red);margin-bottom:6px;display:flex;align-items:center;gap:10px;
+}
+.data-card>.desc{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.5}
+
+.data-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:500px){.data-grid{grid-template-columns:1fr}}
+
+.data-item{
+  background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;padding:14px;
+}
+.di-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--muted);margin-bottom:5px}
+.di-val{font-size:14px;font-weight:700;color:var(--text);word-break:break-all}
+.di-risk{
+  font-size:10px;margin-top:5px;padding:3px 8px;border-radius:6px;
+  display:inline-block;font-weight:700;letter-spacing:.5px;
+}
+.risk-high{background:rgba(255,34,68,.12);color:var(--red)}
+.risk-med{background:rgba(255,200,0,.1);color:#ffc800}
+.risk-low{background:rgba(0,255,136,.08);color:var(--green)}
+
+.data-item.highlight{
+  border-color:rgba(255,34,68,.3);
+  background:rgba(255,34,68,.04);
+}
+.data-item.highlight .di-val{color:#ff6677}
+
+.disclaimer-box{
+  margin-top:18px;
+  background:rgba(0,255,136,.04);border-left:3px solid var(--green);
+  border-radius:0 12px 12px 0;padding:14px 18px;font-size:13px;
+  color:#aaa;line-height:1.7;
+}
+.disclaimer-box strong{color:var(--green)}
+
+/* Technique card */
+.tech-card{
+  background:#0a0a0a;border:1px solid rgba(155,89,255,.2);
+  border-radius:20px;padding:28px;margin-bottom:22px;
+}
+.tech-card h2{font-family:'Russo One',sans-serif;font-size:20px;color:var(--purple);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.tech-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.tech-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);
+  border-radius:12px;padding:13px;font-size:13px;line-height:1.5;
+}
+.tech-list li .t-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.tech-list li .t-text strong{color:var(--text);display:block;margin-bottom:2px;font-size:13px}
+.tech-list li .t-text span{color:var(--muted)}
+
+/* Protection card */
+.prot-card{
+  background:#0a0a0a;border:1px solid rgba(0,255,136,.2);
+  border-radius:20px;padding:28px;margin-bottom:22px;
+}
+.prot-card h2{font-family:'Russo One',sans-serif;font-size:20px;color:var(--green);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.prot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.prot-item{
+  background:rgba(0,255,136,.04);border:1px solid rgba(0,255,136,.15);
+  border-radius:14px;padding:18px;
+}
+.pi-icon{font-size:26px;margin-bottom:10px;display:block}
+.pi-title{font-size:13px;font-weight:700;color:var(--green);margin-bottom:6px}
+.pi-text{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* Final */
+.final-card{
+  background:linear-gradient(135deg,rgba(245,197,24,.05),rgba(255,140,0,.03));
+  border:1px solid rgba(245,197,24,.15);
+  border-radius:20px;padding:36px;text-align:center;
+}
+.final-card h3{font-family:'Russo One',sans-serif;font-size:24px;color:var(--gold);margin-bottom:12px}
+.final-card p{color:var(--muted);font-size:14px;line-height:1.7;max-width:500px;margin:0 auto 20px}
+.btn-restart{
+  padding:11px 28px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);border-radius:12px;
+  color:var(--text);font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;
+  cursor:pointer;transition:background .2s;
+}
+.btn-restart:hover{background:rgba(255,255,255,.1)}
+
+/* Color helpers */
+.c-paypal{color:#009cde}.c-amazon{color:#ff9900}.c-ps{color:#003791}.c-steam{color:#66c0f4}.c-robux{color:#00bfff}.c-vbucks{color:#9b59ff}.c-nike{color:#e5e5e5}
+
+/* Responsive */
+@media(max-width:600px){
+  .form-card{padding:24px 20px}
+  .reveal-body{padding:24px 16px 40px}
+  .data-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<!-- ═══════════════════════════════════════════
+  SCREEN 1 — FAKE SCAM LANDING
+═══════════════════════════════════════════ -->
+<div id="s-land" class="screen active">
+
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="logo-txt">FreeRewards<span style="color:#fff">.gg</span></div>
+      <div class="verified-badge">✓ VÉRIFIÉ</div>
+    </div>
+    <div class="topbar-right">
+      <div class="ssl-badge"><span class="live-dot"></span> <span id="cnt-online">12 847</span> en ligne</div>
+      <div class="ssl-badge">🔒 SSL SÉCURISÉ</div>
+    </div>
+  </div>
+
+  <div class="ticker-wrap">
+    <span class="ticker-inner">
+      🎉 Lucas_FR vient de recevoir 500€ PayPal &nbsp;•&nbsp; ✅ Chloé22 a obtenu une carte Amazon 100€ &nbsp;•&nbsp; 🎮 Mathéo99 a reçu 100 000 Robux &nbsp;•&nbsp; 💳 Emma_D a reçu un virement de 250€ &nbsp;•&nbsp; 🎁 NinjaXX a eu 13 500 V-Bucks &nbsp;•&nbsp; 🏆 Jade.G a gagné une carte PSN 50€ &nbsp;•&nbsp; 🎉 Lucas_FR vient de recevoir 500€ PayPal &nbsp;•&nbsp; ✅ Chloé22 a obtenu une carte Amazon 100€ &nbsp;•&nbsp; 🎮 Mathéo99 a reçu 100 000 Robux &nbsp;•&nbsp; 💳 Emma_D a reçu un virement de 250€ &nbsp;•&nbsp; 🎁 NinjaXX a eu 13 500 V-Bucks &nbsp;•&nbsp; 🏆 Jade.G a gagné une carte PSN 50€ &nbsp;•&nbsp;
+    </span>
+  </div>
+
+  <div class="hero">
+    <div class="hero-tag">🎁 OFFRES EXCLUSIVES — PLACES LIMITÉES</div>
+    <h1>Récupère des <span class="hl">cadeaux gratuits</span> en quelques clics</h1>
+    <p>Des milliers d'utilisateurs ont déjà réclamé leurs récompenses. Il te suffit de choisir ton offre et de vérifier ton compte.</p>
+
+    <div class="countdown-bar">
+      <div>
+        <div class="label">OFFRES EXPIRE DANS</div>
+      </div>
+      <div class="countdown-units">
+        <div><div class="unit" id="cd-h">01</div><div class="unit-label">HEURES</div></div>
+        <div class="sep">:</div>
+        <div><div class="unit" id="cd-m">47</div><div class="unit-label">MIN</div></div>
+        <div class="sep">:</div>
+        <div><div class="unit" id="cd-s">33</div><div class="unit-label">SEC</div></div>
+      </div>
+    </div>
+
+    <div class="slots-bar">
+      <span>🔴</span>
+      <span>Plus que <span class="s-count" id="slots-left">23</span> places disponibles aujourd'hui !</span>
+    </div>
+  </div>
+
+  <!-- OFFERS -->
+  <div class="offers-section">
+    <div class="section-title">Choisis ta récompense</div>
+    <div class="section-sub">Toutes les offres sont gratuites. Aucune carte bancaire requise.</div>
+    <div class="offers-grid">
+
+      <!-- PayPal -->
+      <div class="offer-card hot" onclick="pick('💸','Virement PayPal','500€ sur PayPal','paypal')">
+        <div class="card-header">
+          <div class="card-icon" style="background:rgba(0,156,222,.1)"><span>💸</span></div>
+          <div>
+            <div class="card-brand c-paypal">PAYPAL</div>
+            <div class="card-name">Virement Instantané</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-value c-paypal">500€</div>
+          <div class="card-old">Prix normal : 500,00€</div>
+          <div class="card-bar"><div class="card-fill" style="width:88%"></div></div>
+          <div class="card-stock">Plus que <span>4 offres</span> disponibles</div>
+          <button class="btn-card" style="background:linear-gradient(135deg,#009cde,#006eb6);color:#fff">⚡ Réclamer maintenant</button>
+        </div>
+      </div>
+
+      <!-- Amazon -->
+      <div class="offer-card" onclick="pick('🎁','Carte Cadeau Amazon','Carte Amazon 100€','amazon')">
+        <div class="card-header">
+          <div class="card-icon" style="background:rgba(255,153,0,.1)"><span>📦</span></div>
+          <div>
+            <div class="card-brand c-amazon">AMAZON</div>
+            <div class="card-name">Carte Cadeau</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-value c-amazon">100€</div>
+          <div class="card-old">Prix normal : 100,00€</div>
+          <div class="card-bar"><div class="card-fill" style="width:72%"></div></div>
+          <div class="card-stock">Plus que <span>11 offres</span> disponibles</div>
+          <button class="btn-card" style="background:linear-gradient(135deg,#ff9900,#e47911);color:#000">⚡ Réclamer maintenant</button>
+        </div>
+      </div>
+
+      <!-- Robux -->
+      <div class="offer-card" onclick="pick('🎮','Roblox','100 000 Robux','robux')">
+        <div class="card-header">
+          <div class="card-icon" style="background:rgba(0,191,255,.1)"><span>🎮</span></div>
+          <div>
+            <div class="card-brand c-robux">ROBLOX</div>
+            <div class="card-name">Pack Ultime Robux</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-value c-robux">100K</div>
+          <div class="card-old" style="font-size:12px;color:var(--muted)">Robux — valeur 99,99€</div>
+          <div class="card-bar"><div class="card-fill" style="width:91%"></div></div>
+          <div class="card-stock">Plus que <span>2 offres</span> disponibles</div>
+          <button class="btn-card" style="background:linear-gradient(135deg,#00bfff,#0080ff);color:#fff">⚡ Réclamer maintenant</button>
+        </div>
+      </div>
+
+      <!-- V-Bucks -->
+      <div class="offer-card new" onclick="pick('⚡','Fortnite','13 500 V-Bucks','vbucks')">
+        <div class="card-header">
+          <div class="card-icon" style="background:rgba(155,89,255,.1)"><span>⚡</span></div>
+          <div>
+            <div class="card-brand c-vbucks">FORTNITE</div>
+            <div class="card-name">Pack Légendaire</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-value c-vbucks">13 500</div>
+          <div class="card-old">V-Bucks — valeur 79,99€</div>
+          <div class="card-bar"><div class="card-fill" style="width:65%"></div></div>
+          <div class="card-stock">Plus que <span>8 offres</span> disponibles</div>
+          <button class="btn-card" style="background:linear-gradient(135deg,#9b59ff,#6d28d9);color:#fff">⚡ Réclamer maintenant</button>
+        </div>
+      </div>
+
+      <!-- PSN -->
+      <div class="offer-card" onclick="pick('🎮','PlayStation Network','Carte PSN 50€','psn')">
+        <div class="card-header">
+          <div class="card-icon" style="background:rgba(0,55,145,.15)"><span>🎮</span></div>
+          <div>
+            <div class="card-brand c-ps">PLAYSTATION</div>
+            <div class="card-name">Carte PSN</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-value" style="color:#0070d1">50€</div>
+          <div class="card-old">Prix normal : 50,00€</div>
+          <div class="card-bar"><div class="card-fill" style="width:55%"></div></div>
+          <div class="card-stock">Plus que <span>15 offres</span> disponibles</div>
+          <button class="btn-card" style="background:linear-gradient(135deg,#0070d1,#003791);color:#fff">⚡ Réclamer maintenant</button>
+        </div>
+      </div>
+
+      <!-- Steam -->
+      <div class="offer-card" onclick="pick('🖥️','Steam','Carte Steam 50€','steam')">
+        <div class="card-header">
+          <div class="card-icon" style="background:rgba(102,192,244,.1)"><span>🖥️</span></div>
+          <div>
+            <div class="card-brand c-steam">STEAM</div>
+            <div class="card-name">Carte Cadeau Steam</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-value c-steam">50€</div>
+          <div class="card-old">Prix normal : 50,00€</div>
+          <div class="card-bar"><div class="card-fill" style="width:48%"></div></div>
+          <div class="card-stock">Plus que <span>20 offres</span> disponibles</div>
+          <button class="btn-card" style="background:linear-gradient(135deg,#66c0f4,#1b2838);color:#fff">⚡ Réclamer maintenant</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROOFS -->
+  <div class="proof-section">
+    <div class="section-title">🌟 Avis des gagnants</div>
+    <div class="section-sub" style="margin-bottom:24px">Rejoins des milliers de personnes satisfaites</div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-avatar">🧑</div>
+        <div>
+          <div class="proof-stars">★★★★★</div>
+          <div class="proof-name">Lucas_75</div>
+          <div class="proof-txt">Les 500€ PayPal sont arrivés en 10 min ! Je pensais que c'était une blague mais c'est vrai 🔥</div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-avatar">👧</div>
+        <div>
+          <div class="proof-stars">★★★★★</div>
+          <div class="proof-name">Chloé.gaming</div>
+          <div class="proof-txt">Carte Amazon reçue direct par mail, le code fonctionne ! Merci FreeRewards 💯</div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-avatar">🧑‍💻</div>
+        <div>
+          <div class="proof-stars">★★★★★</div>
+          <div class="proof-name">MaxDark_Plays</div>
+          <div class="proof-txt">100 000 Robux sur mon compte, mes potes ont pas voulu croire mais maintenant ils utilisent le site aussi lol</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+  SCREEN 2 — FORM
+═══════════════════════════════════════════ -->
+<div id="s-form" class="screen">
+  <div class="form-wrap">
+    <div class="form-back" onclick="showScreen('s-land')">← Retour aux offres</div>
+    <div class="form-card">
+      <div class="form-step">ÉTAPE 1/2 — VÉRIFICATION DU COMPTE</div>
+      <h2>Vérifie ton identité</h2>
+      <div class="sub">Pour nous assurer que tu es bien éligible à cette offre, remplis les informations ci-dessous.</div>
+
+      <div class="reward-preview">
+        <div class="rp-icon" id="fp-icon">💸</div>
+        <div>
+          <div class="rp-label">RÉCOMPENSE SÉLECTIONNÉE</div>
+          <div class="rp-val" id="fp-val">500€ sur PayPal</div>
+        </div>
+      </div>
+
+      <div class="fg">
+        <label>PRÉNOM</label>
+        <input type="text" id="f-prenom" placeholder="Ton prénom...">
+      </div>
+      <div class="fg">
+        <label>ADRESSE E-MAIL</label>
+        <input type="email" id="f-email" placeholder="ton.email@exemple.com">
+      </div>
+      <div class="fg">
+        <label>PSEUDO EN JEU (si applicable)</label>
+        <input type="text" id="f-pseudo" placeholder="Ton pseudo...">
+      </div>
+      <div class="fg">
+        <label>DATE DE NAISSANCE</label>
+        <input type="date" id="f-dob" max="2010-01-01">
+      </div>
+      <div class="fg">
+        <label>PAYS</label>
+        <select id="f-pays">
+          <option value="">Sélectionne ton pays</option>
+          <option>France 🇫🇷</option>
+          <option>Belgique 🇧🇪</option>
+          <option>Suisse 🇨🇭</option>
+          <option>Canada 🇨🇦</option>
+          <option>Autre</option>
+        </select>
+      </div>
+
+      <div class="security-row">
+        🔒 Connexion chiffrée 256-bit SSL &nbsp;|&nbsp; 🛡️ Données protégées &nbsp;|&nbsp; ✅ Site certifié
+      </div>
+
+      <button class="btn-submit" onclick="submitForm()">RECEVOIR MA RÉCOMPENSE →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  SCREEN 3 — LOADING
+═══════════════════════════════════════════ -->
+<div id="s-load" class="screen">
+  <div class="load-box">
+    <div class="load-ring"></div>
+    <h2>Traitement en cours…</h2>
+    <p>Connexion aux serveurs de récompenses. Merci de patienter.</p>
+    <div class="pbar"><div class="pfill" id="pf"></div></div>
+    <p class="ppct" id="ppct">0%</p>
+    <ul class="load-steps" id="lsteps">
+      <li id="ls1"><span class="si">⏳</span> Vérification de ton éligibilité…</li>
+      <li id="ls2"><span class="si">⏳</span> Authentification sécurisée…</li>
+      <li id="ls3"><span class="si">⏳</span> Réservation de ta récompense…</li>
+      <li id="ls4"><span class="si">⏳</span> Préparation de l'envoi…</li>
+      <li id="ls5"><span class="si">⏳</span> Finalisation du transfert…</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  SCREEN 4 — WIN
+═══════════════════════════════════════════ -->
+<div id="s-win" class="screen">
+  <canvas class="confetti-canvas" id="confetti"></canvas>
+  <div class="win-wrap">
+    <span class="win-trophy">🏆</span>
+    <div class="win-badge2">🎉 FÉLICITATIONS !</div>
+    <h1>TU AS GAGNÉ !</h1>
+    <div class="win-amount-box">
+      <div class="wal">RÉCOMPENSE CRÉDITÉE</div>
+      <div class="wav" id="w-amount">500€</div>
+      <div class="wau">Compte : <span id="w-user">utilisateur</span></div>
+    </div>
+    <p>Ta récompense a été créditée sur ton compte. Tu devrais la recevoir sous 5 à 10 minutes.</p>
+    <button class="btn-win" onclick="showReveal()">ACCÉDER À MA RÉCOMPENSE →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  SCREEN 5 — EDUCATIONAL REVEAL
+═══════════════════════════════════════════ -->
+<div id="s-reveal" class="screen">
+
+  <div class="reveal-alarm">
+    <div class="alarm-inner">
+      <div class="alarm-icons">⚠️ 🚨 ⚠️</div>
+      <h1>STOP — TU VIENS D'ÊTRE PIEGÉ(E)</h1>
+      <p>Ceci était une simulation éducative à 100%. Aucune donnée n'a été enregistrée sur nos serveurs.</p>
+    </div>
+  </div>
+
+  <div class="reveal-body">
+
+    <!-- BLOCK 1: USER DATA -->
+    <div class="data-card">
+      <h2>📋 Ce que tu as volontairement donné</h2>
+      <div class="desc">En remplissant le formulaire, tu as fourni ces informations à un site inconnu :</div>
+      <div class="data-grid">
+        <div class="data-item highlight">
+          <div class="di-label">PRÉNOM</div>
+          <div class="di-val" id="r-prenom">—</div>
+          <div class="di-risk risk-high">⚠️ Identité partielle</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">ADRESSE E-MAIL</div>
+          <div class="di-val" id="r-email">—</div>
+          <div class="di-risk risk-high">⚠️ Piratage / phishing</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">DATE DE NAISSANCE</div>
+          <div class="di-val" id="r-dob">—</div>
+          <div class="di-risk risk-high">⚠️ Usurpation d'identité</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">PAYS</div>
+          <div class="di-val" id="r-pays">—</div>
+          <div class="di-risk risk-med">⚡ Ciblage géographique</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">PSEUDO EN JEU</div>
+          <div class="di-val" id="r-pseudo">—</div>
+          <div class="di-risk risk-high">⚠️ Piratage de compte</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">RÉCOMPENSE CHOISIE</div>
+          <div class="di-val" id="r-reward">—</div>
+          <div class="di-risk risk-med">⚡ Profil de désirs</div>
+        </div>
+      </div>
+      <div class="disclaimer-box">
+        ✅ <strong>Ici</strong>, ces données ont été utilisées uniquement pour l'affichage local et <strong>n'ont jamais quitté ton appareil</strong>. Mais sur un vrai site malveillant, elles seraient dans une base de données en moins d'une seconde.
+      </div>
+    </div>
+
+    <!-- BLOCK 2: DEVICE FINGERPRINT -->
+    <div class="data-card">
+      <h2>🕵️ Ce qu'on a collecté SANS que tu le saches</h2>
+      <div class="desc">Ces données ont été récupérées <strong style="color:var(--red)">automatiquement</strong>, sans que tu n'aies rien fait de spécial. Ton navigateur les expose à <em>n'importe quel site web</em> que tu visites :</div>
+      <div class="data-grid">
+
+        <div class="data-item highlight">
+          <div class="di-label">TON APPAREIL</div>
+          <div class="di-val" id="r-device">Détection...</div>
+          <div class="di-risk risk-high">⚠️ Type d'appareil identifié</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">SYSTÈME D'EXPLOITATION</div>
+          <div class="di-val" id="r-os">Détection...</div>
+          <div class="di-risk risk-high">⚠️ OS + version détectés</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">NAVIGATEUR</div>
+          <div class="di-val" id="r-browser">Détection...</div>
+          <div class="di-risk risk-med">⚡ Fingerprinting possible</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">RÉSOLUTION D'ÉCRAN</div>
+          <div class="di-val" id="r-screen">Détection...</div>
+          <div class="di-risk risk-med">⚡ Identification de l'écran</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">LANGUE DU SYSTÈME</div>
+          <div class="di-val" id="r-lang">Détection...</div>
+          <div class="di-risk risk-low">ℹ️ Région estimée</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">FUSEAU HORAIRE</div>
+          <div class="di-val" id="r-tz">Détection...</div>
+          <div class="di-risk risk-med">⚡ Localisation régionale</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">COEURS CPU</div>
+          <div class="di-val" id="r-cpu">Détection...</div>
+          <div class="di-risk risk-low">ℹ️ Puissance de l'appareil</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">RAM DISPONIBLE</div>
+          <div class="di-val" id="r-ram">Détection...</div>
+          <div class="di-risk risk-low">ℹ️ Profil matériel</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">TYPE DE CONNEXION</div>
+          <div class="di-val" id="r-conn">Détection...</div>
+          <div class="di-risk risk-med">⚡ Réseau identifié</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">BATTERIE</div>
+          <div class="di-val" id="r-bat">Détection...</div>
+          <div class="di-risk risk-low">ℹ️ État de l'appareil</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">HEURE LOCALE</div>
+          <div class="di-val" id="r-time">Détection...</div>
+          <div class="di-risk risk-med">⚡ Localisation temporelle</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">RATIO PIXEL (DPI)</div>
+          <div class="di-val" id="r-dpr">Détection...</div>
+          <div class="di-risk risk-low">ℹ️ Qualité d'écran</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BLOCK 3: IP DATA -->
+    <div class="data-card">
+      <h2>📡 Ta localisation via ton adresse IP</h2>
+      <div class="desc">Ton adresse IP est visible par <strong style="color:var(--red)">tous les sites que tu visites</strong>. Voici ce qu'un serveur peut en déduire instantanément :</div>
+      <div class="data-grid">
+        <div class="data-item highlight">
+          <div class="di-label">ADRESSE IP PUBLIQUE</div>
+          <div class="di-val" id="r-ip">Récupération...</div>
+          <div class="di-risk risk-high">⚠️ Identifiant réseau unique</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">VILLE APPROXIMATIVE</div>
+          <div class="di-val" id="r-city">Récupération...</div>
+          <div class="di-risk risk-high">⚠️ Localisation géographique</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">RÉGION / DÉPARTEMENT</div>
+          <div class="di-val" id="r-region">Récupération...</div>
+          <div class="di-risk risk-high">⚠️ Zone précisée</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">PAYS</div>
+          <div class="di-val" id="r-country">Récupération...</div>
+          <div class="di-risk risk-med">⚡ Pays identifié</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">FOURNISSEUR INTERNET (FAI)</div>
+          <div class="di-val" id="r-isp">Récupération...</div>
+          <div class="di-risk risk-med">⚡ Opérateur connu</div>
+        </div>
+        <div class="data-item highlight">
+          <div class="di-label">COORDONNÉES GPS APPROX.</div>
+          <div class="di-val" id="r-coords">Récupération...</div>
+          <div class="di-risk risk-high">⚠️ Position estimée ~50km</div>
+        </div>
+      </div>
+      <div class="disclaimer-box">
+        ✅ Ces données ont été récupérées via l'API <strong>ipapi.co</strong>, un service public, exactement comme le ferait un vrai site malveillant. Seule différence : ici elles s'affichent pour t'informer. <strong>Un VPN masque ton IP réelle.</strong>
+      </div>
+    </div>
+
+    <!-- BLOCK 4: TECHNIQUES -->
+    <div class="tech-card">
+      <h2>🎭 Les techniques de manipulation utilisées</h2>
+      <ul class="tech-list">
+        <li>
+          <div class="t-icon">⏰</div>
+          <div class="t-text">
+            <strong>Faux compte à rebours</strong>
+            <span>Crée une urgence artificielle. Le timer recommence en secret si tu reviens sur la page.</span>
+          </div>
+        </li>
+        <li>
+          <div class="t-icon">👥</div>
+          <div class="t-text">
+            <strong>Faux compteur "en ligne"</strong>
+            <span>Le chiffre change aléatoirement. Il n'y a aucun autre utilisateur réel sur ce site.</span>
+          </div>
+        </li>
+        <li>
+          <div class="t-icon">🏆</div>
+          <div class="t-text">
+            <strong>Faux témoignages & bandeau de "gagnants"</strong>
+            <span>100% inventés. Aucun Lucas, Chloé ou Max n'a reçu quoi que ce soit.</span>
+          </div>
+        </li>
+        <li>
+          <div class="t-icon">🔒</div>
+          <div class="t-text">
+            <strong>Le cadenas SSL ne garantit rien</strong>
+            <span>SSL chiffre la connexion — mais pas que le site est honnête. Un site arnaque peut avoir un cadenas vert.</span>
+          </div>
+        </li>
+        <li>
+          <div class="t-icon">📊</div>
+          <div class="t-text">
+            <strong>Barres de progression "presque pleines"</strong>
+            <span>Simule une rareté. En réalité aucun stock n'existe.</span>
+          </div>
+        </li>
+        <li>
+          <div class="t-icon">🎁</div>
+          <div class="t-text">
+            <strong>Offre impossible = arnaque garantie</strong>
+            <span>PayPal, Amazon, Robux, V-Bucks — aucun service ne donne des sommes réelles gratuitement. C'est <em>physiquement impossible</em>.</span>
+          </div>
+        </li>
+        <li>
+          <div class="t-icon">📬</div>
+          <div class="t-text">
+            <strong>Collecte d'e-mail pour revente</strong>
+            <span>Ton adresse e-mail est une marchandise. Elle peut être vendue à des spammeurs, ou utilisée pour pirater tes comptes.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- BLOCK 5: PROTECTION -->
+    <div class="prot-card">
+      <h2>🛡️ Comment te protéger</h2>
+      <div class="prot-grid">
+        <div class="prot-item">
+          <span class="pi-icon">🔍</span>
+          <div class="pi-title">Vérifie l'URL</div>
+          <div class="pi-text">Seuls les domaines officiels (paypal.com, amazon.fr, roblox.com) sont fiables. Méfie-toi des copies.</div>
+        </div>
+        <div class="prot-item">
+          <span class="pi-icon">🎁</span>
+          <div class="pi-title">Rien n'est jamais gratuit</div>
+          <div class="pi-text">Si un site offre quelque chose d'une valeur réelle sans contrepartie, c'est une arnaque. Toujours.</div>
+        </div>
+        <div class="prot-item">
+          <span class="pi-icon">📧</span>
+          <div class="pi-title">Protège ton e-mail</div>
+          <div class="pi-text">Utilise une adresse jetable (tempmail.com) pour tester des sites suspects.</div>
+        </div>
+        <div class="prot-item">
+          <span class="pi-icon">🌐</span>
+          <div class="pi-title">Utilise un VPN</div>
+          <div class="pi-text">Un VPN masque ton adresse IP réelle et empêche ta localisation via le réseau.</div>
+        </div>
+        <div class="prot-item">
+          <span class="pi-icon">🧠</span>
+          <div class="pi-title">Pense avant de cliquer</div>
+          <div class="pi-text">Le sentiment d'urgence et la peur de "rater" sont des outils de manipulation. Prends le temps de réfléchir.</div>
+        </div>
+        <div class="prot-item">
+          <span class="pi-icon">🗣️</span>
+          <div class="pi-title">Parles-en</div>
+          <div class="pi-text">Si tu doutes d'un site, demande à un adulte de confiance ou cherche le nom du site + "arnaque" sur Google.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL -->
+    <div class="final-card">
+      <h3>✅ Tu sais maintenant comment ça marche !</h3>
+      <p>
+        Cette simulation a été créée dans un but <strong>100% éducatif</strong>. Partage-la avec tes amis, ta famille — plus on est nombreux à comprendre ces mécanismes, moins les arnaques fonctionnent. 💪
+      </p>
+      <button class="btn-restart" onclick="restart()">🔄 Recommencer la simulation</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container"></div>
+
+<script>
+// ── STATE ──
+let selected = {};
+let userData = {};
+
+// ── PARTICLES ──
+(function(){
+  const c = document.getElementById('particles');
+  const cols = ['#f5c51822','#ff8c0018','#00ff8810','#00d4ff10','#9b59ff0f'];
+  for(let i=0;i<30;i++){
+    const p = document.createElement('div');
+    p.className='particle';
+    const s = 2+Math.random()*6;
+    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${cols[i%cols.length]};animation-duration:${8+Math.random()*15}s;animation-delay:${Math.random()*10}s`;
+    c.appendChild(p);
+  }
+})();
+
+// ── COUNTDOWN ──
+let cd = 107*60+33;
+setInterval(()=>{
+  cd = Math.max(0,cd-1);
+  const h = String(Math.floor(cd/3600)).padStart(2,'0');
+  const m = String(Math.floor((cd%3600)/60)).padStart(2,'0');
+  const s = String(cd%60).padStart(2,'0');
+  document.getElementById('cd-h').textContent=h;
+  document.getElementById('cd-m').textContent=m;
+  document.getElementById('cd-s').textContent=s;
+  if(cd===0) cd=3599;
+},1000);
+
+// ── ONLINE COUNT ──
+setInterval(()=>{
+  document.getElementById('cnt-online').textContent=(12000+Math.floor(Math.random()*2000)).toLocaleString('fr-FR');
+},4000);
+
+// ── SLOTS ──
+let slots=23;
+setInterval(()=>{
+  if(Math.random()<0.3 && slots>3) slots--;
+  document.getElementById('slots-left').textContent=slots;
+},8000);
+
+// ── TOAST NOTIFICATIONS ──
+const fakeNames=[
+  ['Lucas_75','a reçu 500€ PayPal 💸'],['Chloé22','a obtenu une carte Amazon 100€ 📦'],
+  ['Mathéo.G','vient de gagner 100K Robux 🎮'],['Emma_D','a reçu un virement de 250€ 💳'],
+  ['NinjaXX','a eu 13 500 V-Bucks ⚡'],['Jade.Gaming','a gagné une carte PSN 50€ 🎮'],
+  ['Leo_Pro','vient de retirer 500€ sur PayPal 🔥'],['SophieFR','a obtenu sa carte Steam 🖥️'],
+];
+let ti=0;
+function showToast(){
+  const [name,msg]=fakeNames[ti%fakeNames.length]; ti++;
+  const t=document.createElement('div');
+  t.className='toast';
+  t.innerHTML=`<div class="toast-icon">🎉</div><div><div class="toast-name">${name}</div><div>${msg}</div></div>`;
+  const tc=document.getElementById('toast-container');
+  tc.appendChild(t);
+  setTimeout(()=>t.remove(),4000);
+}
+showToast();
+setInterval(showToast, 6000+Math.random()*4000);
+
+// ── PICK OFFER ──
+function pick(icon, game, val, type){
+  selected={icon,game,val,type};
+  document.getElementById('fp-icon').textContent=icon;
+  document.getElementById('fp-val').textContent=val;
+  showScreen('s-form');
+}
+
+// ── SUBMIT ──
+function submitForm(){
+  const prenom=document.getElementById('f-prenom').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const pseudo=document.getElementById('f-pseudo').value.trim();
+  const dob=document.getElementById('f-dob').value;
+  const pays=document.getElementById('f-pays').value;
+  if(!prenom||!email||!pays){
+    alert('Merci de remplir tous les champs obligatoires !');
+    return;
+  }
+  userData={prenom,email,pseudo,dob,pays,reward:selected.val||'Non choisi',game:selected.game||'?',icon:selected.icon||'🎁'};
+  showScreen('s-load');
+  runLoader();
+}
+
+// ── LOADER ──
+function runLoader(){
+  let pct=0;
+  const steps=[
+    {id:'ls1',t:500},{id:'ls2',t:1400},{id:'ls3',t:2400},{id:'ls4',t:3400},{id:'ls5',t:4300}
+  ];
+  steps.forEach(s=>setTimeout(()=>{
+    const el=document.getElementById(s.id);
+    el.classList.add('done');
+    el.querySelector('.si').textContent='✅';
+  },s.t));
+  const iv=setInterval(()=>{
+    pct=Math.min(pct+1.2,100);
+    document.getElementById('pf').style.width=pct+'%';
+    document.getElementById('ppct').textContent=Math.floor(pct)+'%';
+    if(pct>=100){clearInterval(iv);setTimeout(showWin,300);}
+  },50);
+}
+
+// ── WIN ──
+function showWin(){
+  document.getElementById('w-amount').textContent=userData.reward||'500€';
+  document.getElementById('w-user').textContent=userData.prenom||'utilisateur';
+  showScreen('s-win');
+  launchConfetti();
+}
+
+// ── CONFETTI ──
+function launchConfetti(){
+  const canvas=document.getElementById('confetti');
+  canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+  const ctx=canvas.getContext('2d');
+  const pieces=[];
+  const cols=['#f5c518','#ff8c00','#00ff88','#00d4ff','#9b59ff','#ff2244'];
+  for(let i=0;i<120;i++) pieces.push({
+    x:Math.random()*canvas.width,y:Math.random()*canvas.height-canvas.height,
+    w:6+Math.random()*8,h:3+Math.random()*5,
+    c:cols[Math.floor(Math.random()*cols.length)],
+    r:Math.random()*Math.PI*2,
+    vx:(Math.random()-0.5)*3,vy:2+Math.random()*4,vr:0.05+Math.random()*.1,
+    life:1
+  });
+  let frame=0;
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    pieces.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;
+      if(frame>200) p.life-=0.008;
+      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);
+      ctx.globalAlpha=Math.max(0,p.life);
+      ctx.fillStyle=p.c;
+      ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+      ctx.restore();
+    });
+    frame++;
+    if(pieces.some(p=>p.life>0)) requestAnimationFrame(draw);
+    else ctx.clearRect(0,0,canvas.width,canvas.height);
+  }
+  draw();
+}
+
+// ── REVEAL ──
+function showReveal(){
+  // Fill form data
+  document.getElementById('r-prenom').textContent=userData.prenom||'Non renseigné';
+  document.getElementById('r-email').textContent=userData.email||'Non renseigné';
+  document.getElementById('r-dob').textContent=userData.dob||'Non renseigné';
+  document.getElementById('r-pays').textContent=userData.pays||'Non renseigné';
+  document.getElementById('r-pseudo').textContent=userData.pseudo||'Non renseigné';
+  document.getElementById('r-reward').textContent=userData.reward||'Non renseigné';
+
+  // Device fingerprint
+  const ua=navigator.userAgent;
+  // OS detection
+  let os='Inconnu';
+  if(/Windows NT 10/.test(ua)) os='Windows 10 / 11';
+  else if(/Windows NT 6\.1/.test(ua)) os='Windows 7';
+  else if(/Windows/.test(ua)) os='Windows';
+  else if(/iPhone/.test(ua)) os='iOS (iPhone)';
+  else if(/iPad/.test(ua)) os='iOS (iPad)';
+  else if(/Android/.test(ua)) os=`Android ${(ua.match(/Android ([\d.]+)/)||['','?'])[1]}`;
+  else if(/Mac OS X/.test(ua)) os=`macOS ${(ua.match(/Mac OS X ([\d_]+)/)||['','?'])[1].replace(/_/g,'.')}`;
+  else if(/Linux/.test(ua)) os='Linux';
+  else if(/CrOS/.test(ua)) os='Chrome OS';
+
+  // Device type
+  let device='Ordinateur (Desktop)';
+  if(/Mobi|Android|iPhone|iPad|iPod/.test(ua)){
+    if(/iPad/.test(ua)) device='Tablette (iPad)';
+    else if(/iPhone/.test(ua)) device='Smartphone (iPhone)';
+    else device='Smartphone Android';
+  } else if(/Tablet/.test(ua)) device='Tablette';
+
+  // Browser
+  let browser='Inconnu';
+  if(/Edg\//.test(ua)) browser=`Microsoft Edge ${(ua.match(/Edg\/([\d.]+)/)||['','?'])[1].split('.')[0]}`;
+  else if(/OPR\//.test(ua)) browser=`Opera ${(ua.match(/OPR\/([\d.]+)/)||['','?'])[1].split('.')[0]}`;
+  else if(/Chrome\//.test(ua)) browser=`Chrome ${(ua.match(/Chrome\/([\d.]+)/)||['','?'])[1].split('.')[0]}`;
+  else if(/Firefox\//.test(ua)) browser=`Firefox ${(ua.match(/Firefox\/([\d.]+)/)||['','?'])[1]}`;
+  else if(/Safari\//.test(ua)&&!/Chrome/.test(ua)) browser=`Safari ${(ua.match(/Version\/([\d.]+)/)||['','?'])[1]}`;
+  else if(/SamsungBrowser/.test(ua)) browser='Samsung Internet';
+
+  document.getElementById('r-device').textContent=device;
+  document.getElementById('r-os').textContent=os;
+  document.getElementById('r-browser').textContent=browser;
+  document.getElementById('r-screen').textContent=`${screen.width}×${screen.height} px`;
+  document.getElementById('r-lang').textContent=navigator.language||'Inconnu';
+  document.getElementById('r-tz').textContent=Intl.DateTimeFormat().resolvedOptions().timeZone||'Inconnu';
+  document.getElementById('r-cpu').textContent=navigator.hardwareConcurrency?`${navigator.hardwareConcurrency} cœurs`:'Non exposé';
+  document.getElementById('r-ram').textContent=navigator.deviceMemory?`~${navigator.deviceMemory} Go`:'Non exposé';
+  document.getElementById('r-dpr').textContent=`${window.devicePixelRatio}x (${window.devicePixelRatio>=2?'Rétina / haute résolution':'Résolution standard'})`;
+  document.getElementById('r-time').textContent=new Date().toLocaleString('fr-FR');
+
+  // Connection
+  const conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+  if(conn){
+    const types={'wifi':'Wi-Fi','cellular':'Données mobiles (4G/5G)','ethernet':'Ethernet','none':'Hors ligne'};
+    const eff={'4g':'Rapide (4G+)','3g':'Moyen (3G)','2g':'Lent (2G)','slow-2g':'Très lent'};
+    document.getElementById('r-conn').textContent=(types[conn.effectiveType]||conn.type||'Inconnu')+
+      (conn.downlink?` — ${conn.downlink} Mbps`:'');
+  } else {
+    document.getElementById('r-conn').textContent='Non exposé par ce navigateur';
+  }
+
+  // Battery
+  if(navigator.getBattery){
+    navigator.getBattery().then(b=>{
+      const lvl=Math.round(b.level*100);
+      const state=b.charging?'⚡ En charge':'🔋 Sur batterie';
+      document.getElementById('r-bat').textContent=`${lvl}% — ${state}`;
+    }).catch(()=>{
+      document.getElementById('r-bat').textContent='Accès refusé par le navigateur';
+    });
+  } else {
+    document.getElementById('r-bat').textContent='Non supporté';
+  }
+
+  // IP Geolocation
+  fetch('https://ipapi.co/json/')
+    .then(r=>r.json())
+    .then(d=>{
+      document.getElementById('r-ip').textContent=d.ip||'Indisponible';
+      document.getElementById('r-city').textContent=d.city||'Indisponible';
+      document.getElementById('r-region').textContent=d.region||'Indisponible';
+      document.getElementById('r-country').textContent=d.country_name?`${d.country_name} (${d.country_code})`:'Indisponible';
+      document.getElementById('r-isp').textContent=d.org||d.isp||'Indisponible';
+      document.getElementById('r-coords').textContent=d.latitude&&d.longitude?`${d.latitude}°N, ${d.longitude}°E`:'Indisponible';
+    })
+    .catch(()=>{
+      ['r-ip','r-city','r-region','r-country','r-isp','r-coords']
+        .forEach(id=>document.getElementById(id).textContent='Non récupéré (réseau)');
+    });
+
+  showScreen('s-reveal');
+}
+
+// ── RESTART ──
+function restart(){
+  userData={};selected={};
+  ['f-prenom','f-email','f-pseudo'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('f-dob').value='';
+  document.getElementById('f-pays').value='';
+  document.getElementById('pf').style.width='0%';
+  document.getElementById('ppct').textContent='0%';
+  ['ls1','ls2','ls3','ls4','ls5'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.classList.remove('done');
+    el.querySelector('.si').textContent='⏳';
+  });
+  showScreen('s-land');
+}
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
